@@ -13,17 +13,42 @@ app.get("/", (req,res) => {
   var currentDay = today.getDay();
   var kindofday="";
 
-  if(currentDay == 0 || currentDay == 6){
-    kindofday="Weekend";
-  }
+  switch (currentDay){
 
-  else{
-    kindofday="Weekday";
-  }
+    case 0:
+      kindofday="Sunday";
+      break;
+
+    case 1:
+      kindofday="Monday";
+      break;
+
+
+    case 2:
+      kindofday="Tuesday";
+      break;
+
+    case 3:
+      kindofday="Wensday";
+      break;
+
+    case 4:
+      kindofday="Thursday";
+      break;
+
+    case 5:
+      kindofday="Friday";
+      break;
+
+    case 6:
+      kindofday="Saturday";
+      break;
+      }
+
   res.render('list',{day:kindofday});
 
   console.log(currentDay);
-})
+});
 
 
 
